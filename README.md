@@ -24,8 +24,8 @@ Important Points:
 - If we are having cloudera cluster and we are running Hive query then the query will be converted into map reduce job.
 
 - If we are having Hortonworks cluster and we are running Hive query then the query will be converted into Tez job.
-We can change the setting to run MR job.
-set hive.execution.engine=mr;
+  We can change the setting to run MR job.
+  set hive.execution.engine=mr;
 
 - Tez is another framework like map reduce which is quite faster than mapreduce.
 
@@ -70,12 +70,12 @@ Hive Driver:
 After that the query will be given to executor that is nothing but the map reduce or Tez. This map reduce job then executed through Name node using resource manager.
 
 Driver has 4 parts:
-- Parser & Planner: 
+  - Parser & Planner: 
 	Driver passes query to a compiler where parsing and planning phases happen.
 	In Parsing query is analyzed into logical components.
 	In Planning, query is converted to MR jobs.
 	It analizes the semantics of the query.
-- Optimizer & Executor:
+  - Optimizer & Executor:
 	Optimizer optimizes the query.
 	Executor executes the MR jobs.
 	
