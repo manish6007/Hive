@@ -147,6 +147,28 @@ Types of partitions:
   Example:
   --------
  	 hive> INSERT INTO TABLE temps_partition_date PARTITION (datelocal) SELECT statecode, contrycode, itenum, paramcode, poc, latitude, longitude, datum, param, datelocal FROM temps_txt;
+	 
+Buckets (or Clusters):
+----------------------
+- Data in each partition may in turn divided into Buckets based on the hash function of a column of a table.
+- Table may be bucketed by field of the table, which is one of the columns, other than the partition columns of the table.
+- Can be used to efficiently group data.
+- Used in instances where partitioned file size still remains huge.
+- Allows user to devide table datasets into more manageable parts.
+- Records which are bucketed by the same column will always be saved in the same bucket.
+- CLUSTERED BY clause is used to devide table into buckets.
+- Like partition creates a directory, a bucket created a file.
+- Can be done even without partitioning
+-- Below properties must be enabled(either in hive shell or hive-site.xml) while using bucketing.
+	hive> SET hive.enforce.bucketing = true
+	
+ Creating bucket table:
+ ----------------------
+  	hive> CREATE TABLE bucket_table(street STRING, zip INT, state STRING, beds INT, baths INT, sq_ft INT, flat_type STRING, price FLOAT) PARTITIONED BT (city STRING) CLUSTERED BY (street) INTO 4 BUCKETS ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+  
+ Inserting data in bucketed table:
+ ---------------------------------
+ 	hive> INSERT INTO TABLE bucket_table PARTITION(city) select street,zip,state,beds,baths,sq_ft,flat_type,price,city from input_table;
 
 
 
