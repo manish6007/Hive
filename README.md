@@ -86,6 +86,25 @@ Data Organisation in Hive(Data Model):
 - This directory can have subdirectories which are called partitions.
 - These partition contains the files called buckets.
 
+ACID Transactions in Hive:
+--------------------------
+Hive is not designed for ACID transactions. But Hive has started supporting ACID transactions recently. We need to manually enable it on hortonworks plateform. We can use SCDs in hive now.
+
+Indexing in Hive:
+------------------
+Hive has 2 types of indexes.
+ - Compact Indexes
+ - Bitmap Indexes
+
+Note:
+----- 
+ - Opensource community doesn't recommend to use these indexes because they are not efficient.
+
+ - Whenever possible create a hive table in ORC format for faster operations because ORC has built in indexes.
+
+ - ORC is default standard in Hive.
+
+
 
 
 
