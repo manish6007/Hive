@@ -103,6 +103,25 @@ Note:
  - Whenever possible create a hive table in ORC format for faster operations because ORC has built in indexes.
 
  - ORC is default standard in Hive.
+ 
+Partitioning & Bucketing:
+---------------------------
+ Partitions: 
+ -----------
+- Groups same type of data together based on column or partition key.
+- Using partition, it is easy to query a portion of data.
+- Users need to filter data on specific column values.
+- Determines distribution of data within subdirectories.
+- Supported for both managed and external tables.
+- Hive scans only data directories that are needed.
+
+Example:
+-------
+	hive> CREATE TABLES Sales(sale_id INT, amout FLOAT) PARTITIONED BY (country STRING, year INT, month INT);
+
+So each artition will be split out into different folders like
+
+Sales/country=US/year=2012/month=12
 
 
 
