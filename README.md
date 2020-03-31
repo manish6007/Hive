@@ -123,7 +123,30 @@ So each artition will be split out into different folders like
 
 Sales/country=US/year=2012/month=12
 
+Types of partitions:
+--------------------
+ Static Partition:
+ -----------------
+ - Insert input data files individually into a partition tables is static partitioning
+ - We "Statically" add a partition in table and move the file into the partition of the table
+ - Preferred while loading files into table.
+ 
+  Example:
+  --------
+	LOAD DATA LOCAL inpath '/home/manish6007/hyderabad.log' INTO TABLE cityreport partition (city='hyderabad');
 
+ Dynamic Partition:
+ ------------------
+ - Single insert to partitioned table  is known as dynamic patitioning.
+ - Loads data from non partitioned table.
+ - Preferred when we have large data stored in a table.
+ - Below properties must be enabled(either in hive shell or hive-site.xml) while using dynamic partitioning.
+	hive> SET hive.exec.dynamic.partition = true;
+	hive> SET hive.exec.dynamic.partition.mode = nonstrict;
+	
+  Example:
+  --------
+ 	 hive> INSERT INTO TABLE temps_partition_date PARTITION (datelocal) SELECT statecode, contrycode, itenum, paramcode, poc, latitude, longitude, datum, param, datelocal FROM temps_txt;
 
 
 
