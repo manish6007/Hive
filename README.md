@@ -169,9 +169,37 @@ Buckets (or Clusters):
  Inserting data in bucketed table:
  ---------------------------------
  	hive> INSERT INTO TABLE bucket_table PARTITION(city) select street,zip,state,beds,baths,sq_ft,flat_type,price,city from input_table;
-
-
-
 	
+Hive Tables:
+------------
+Hive has 2 tyes of tables.
+- Managed or internal table
+- External table
 
+Managed/Internal table
+-----------------------
+- Deault table in Hive.
+- These tables are created as directories in /user/hive/warehouse location in HDFS.
+- Deletion of these tables deleted both data in the table & metadata present in HDFS.
 
+ Example:
+ --------
+	CREATE TABLE employee(Name STRING, Sal INT) row format delimited fields terminated by ',';
+
+External Table:
+---------------
+- External table is created for external use as when data is present outside Hive.
+- At time of dropping a table, only schema will be dropped & data will still be available in HDFS.
+- External table only deletes schema of table.
+
+ Example:
+ --------
+	CREATE EXTERNAL TABLE employee(
+	id int,
+	name string,
+	city string,
+	zip int 
+	row format delimited
+	field terminated by ','
+	location'/usr/pkp/kar/data';
+	
