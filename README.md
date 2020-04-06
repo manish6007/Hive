@@ -6,7 +6,7 @@ Hive:
 - Hive parses the sql query in the series of map reduce jobs.
 - Hive has a schema evolution available.
 - Map reduce code can be integrated with hive using UDFs.
-- Have has jdbc/odbc drivers to connect the db clients.
+- Hive has jdbc/odbc drivers to connect the db clients.
 - Hive uses Hadoop as storage.
 - Data must be in HADOOP to run hive queries.
 - Informatica can be connected to Hive and it can do ETL operations.
