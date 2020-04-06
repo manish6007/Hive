@@ -29,7 +29,7 @@ Important Points:
 
 - Tez is another framework like map reduce which is quite faster than mapreduce.
 
-- Because of the limilation of performance with cloudera. Cloudera is having another query engine Impala which is quite faster. So for best performance in cloudera cluster we should use tool called Impala. One drawback wit Impala is that it is not fault tolerant.
+- Because of the limilation of performance with cloudera. Cloudera is having another query engine Impala which is quite faster. So for best performance in cloudera cluster we should use tool called Impala. One drawback with Impala is that it is not fault tolerant.
 
 - Open-Source updates will not be available immidiately in cloudera but will be available in hortonworks as this is apache project.
 
