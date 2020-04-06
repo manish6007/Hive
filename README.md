@@ -66,7 +66,7 @@ Thrift Server:
 
 Hive Driver:
 ------------
-- When we run a hive query it will hit the server(The driver part). Te sql query will be compiled and then optimized by CBO(Cost based optimizer).
+- When we run a hive query it will hit the server(The driver part). The sql query will be compiled and then optimized by CBO(Cost based optimizer).
 After that the query will be given to executor that is nothing but the map reduce or Tez. This map reduce job then executed through Name node using resource manager.
 
 Driver has 4 parts:
@@ -164,7 +164,7 @@ Buckets (or Clusters):
 	
  Creating bucket table:
  ----------------------
-  	hive> CREATE TABLE bucket_table(street STRING, zip INT, state STRING, beds INT, baths INT, sq_ft INT, flat_type STRING, price FLOAT) PARTITIONED BT (city STRING) CLUSTERED BY (street) INTO 4 BUCKETS ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+  	hive> CREATE TABLE bucket_table(street STRING, zip INT, state STRING, beds INT, baths INT, sq_ft INT, flat_type STRING, price FLOAT) PARTITIONED BY (city STRING) CLUSTERED BY (street) INTO 4 BUCKETS ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
   
  Inserting data in bucketed table:
  ---------------------------------
